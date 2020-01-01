@@ -18,11 +18,26 @@
     {
       "type": "shell",
       "inline": [
-        "sudo yum install -y httpd",
-        "sudo chkconfig httpd on",
-        "sudo service httpd start",
-        "sudo chown -R ec2-user:ec2-user /var/www/",
-        "echo '<h1>Welcome to Packer</h1>' > /var/www/html/index.html"
+	    "sudo yum update -y"
+	    "sudo yum install java-1.8.0-openjdk.x86_64 -y"
+		"sudo yum install wget unzip -y"
+		"sudo wget http://apachemirror.wuchna.com/tomcat/tomcat-8/v8.5.50/bin/apache-tomcat-8.5.50.tar.gz"
+		"sudo adduser openkm"
+		"sudo mv apache-tomcat-8.5.50.tar.gz /home/openkm"
+		"sudo cd /home/openkm"
+		"sudo tar -xvzf apache-tomcat-8.5.50.tar.gz"
+		"sudo chown -R openkm:openkm apache-tomcat-8.5.50"
+		"sudo cd apache-tomcat-8.5.50"
+		"sudo rm apache-tomcat-8.5.50/conf/tomcat-users.xml"
+		"sudo rm apache-tomcat-8.5.50/webapps/manager/META-INF/context.xml"
+		"sudo cp tomcat-users.xml apache-tomcat-8.5.50/conf/"
+	    "sudo cp context.xml apache-tomcat-8.5.50/webapps/manager/META-INF/"
+		"sudo cd /etc/init.d/"
+		"sudo cp tomcat ."
+		"sudo chmod 755 /etc/init.d/tomcat"
+		"sudo chkconfig --add tomcat"
+		"sudo chkconfig tomcat on"
+		"sudo service tomcat start"
       ]
     }
   ]
