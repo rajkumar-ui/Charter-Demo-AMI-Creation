@@ -35,7 +35,7 @@
 	"sudo mv context.xml /home/openkm/apache-tomcat-8.5.50/webapps/manager/META-INF/",
 	"sudo mv tomcat /etc/init.d/",
 	"sudo chmod 755 /etc/init.d/tomcat",
-	"sudo service tomcat start"
+	"sudo service tomcat start",
 	"sudo chkconfig tomcat --level 2345 on"
       ]
     }
