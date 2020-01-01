@@ -1,7 +1,6 @@
 #!/bin/sh
 
 ### BEGIN INIT INFO
-# chkconfig: 234 20 80
 # Provides:          tomcat
 # Required-Start:    $remote_fs $syslog
 # Required-Stop:     $remote_fs $syslog
