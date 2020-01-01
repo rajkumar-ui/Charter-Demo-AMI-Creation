@@ -25,7 +25,7 @@
 	"sudo adduser openkm",
 	"sudo mv apache-tomcat-8.5.50.tar.gz /home/openkm",
 	"sudo tar -xvzf /home/openkm/apache-tomcat-8.5.50.tar.gz",
-	"sleep 100"
+	"sleep 100",
 	"sudo chown -R openkm:openkm /home/openkm/apache-tomcat-8.5.50",
 	"sudo rm /home/openkm/apache-tomcat-8.5.50/conf/tomcat-users.xml",
 	"sudo rm /home/openkm/apache-tomcat-8.5.50/webapps/manager/META-INF/context.xml",
