@@ -9,23 +9,23 @@
 # Short-Description: Start and stop Apache Tomcat
 # Description:       Enable Apache Tomcat service provided by daemon.
 ### END INIT INFO
-
+ 
 ECHO=/bin/echo
 TEST=/usr/bin/test
 TOMCAT_USER=openkm
 TOMCAT_HOME=/home/openkm/apache-tomcat-8.5.50
 TOMCAT_START_SCRIPT=$TOMCAT_HOME/bin/startup.sh
 TOMCAT_STOP_SCRIPT=$TOMCAT_HOME/bin/shutdown.sh
-
+ 
 $TEST -x $TOMCAT_START_SCRIPT || exit 0
 $TEST -x $TOMCAT_STOP_SCRIPT || exit 0
-
+ 
 start() {
     $ECHO -n "Starting Tomcat"
     su - $TOMCAT_USER -c "$TOMCAT_START_SCRIPT &"
     $ECHO "."
 }
-
+ 
 stop() {
     $ECHO -n "Stopping Tomcat"
     su - $TOMCAT_USER -c "$TOMCAT_STOP_SCRIPT 60 -force &"
@@ -34,7 +34,7 @@ stop() {
     done
     $ECHO "."
 }
-
+ 
 case "$1" in
     start)
         start
