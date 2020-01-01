@@ -23,7 +23,7 @@
 	"sudo yum install wget unzip -y",
 	"sudo wget http://apachemirror.wuchna.com/tomcat/tomcat-8/v8.5.50/bin/apache-tomcat-8.5.50.tar.gz",
 	"sudo adduser openkm",
-	"sudo tar -xvzf /home/openkm/apache-tomcat-8.5.50.tar.gz",
+	"sudo tar -xvzf apache-tomcat-8.5.50.tar.gz",
 	"sleep 100",
 	"sudo mv apache-tomcat-8.5.50 /home/openkm",
 	"sudo chown -R openkm:openkm /home/openkm/apache-tomcat-8.5.50",
