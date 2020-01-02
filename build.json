@@ -18,6 +18,7 @@
     {
       "type": "shell",
       "inline": [
+	"sudo yum update -y",
 	"sudo yum install java-1.8.0-openjdk.x86_64 -y",
 	"sudo yum install wget unzip -y",
 	"sudo wget http://apachemirror.wuchna.com/tomcat/tomcat-8/v8.5.50/bin/apache-tomcat-8.5.50.tar.gz",
