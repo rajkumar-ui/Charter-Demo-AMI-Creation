@@ -41,7 +41,7 @@
 	"sudo service tomcat start",
 	"sudo yum install -y ruby",
         "sudo yum install -y aws-cli",
-        "sudo wget aws s3 cp s3://aws-codedeploy-us-east-2/latest/install . --region us-east-2",
+        "sudo wget https://aws-codedeploy-us-east-1.s3.amazonaws.com/latest/install",
         "sudo chmod +x ./install",
         "sudo ./install auto",
         "sudo chkconfig codedeploy-agent on",
