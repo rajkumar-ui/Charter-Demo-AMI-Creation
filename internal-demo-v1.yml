@@ -6,11 +6,11 @@ Parameters:
   ImageId:
     Description: EC2 instance type..Provide base AMI or Packer AMI reference
     Type: AWS::EC2::Image::Id
-    Default: ami-0080e4c5bc078760e
+    Default: ami-0f7e8052d20128a47
   InstanceType:
     Description:  EC2 instance type
     Type: String
-    Default: t2.small
+    Default: t2.micro
     AllowedValues:
       - t2.nano
       - t2.micro
@@ -27,7 +27,7 @@ Parameters:
   KeyName:
     Description: Provide Existing keypair name.
     Type: AWS::EC2::KeyPair::KeyName
-    Default: packer-infy-key
+    Default: Dec-2019.pem
   SSHLocation:
     Description: The IP address range that can be used to SSH to the EC2 instances
     Type: String
@@ -38,7 +38,7 @@ Parameters:
     ConstraintDescription: must be a valid IP CIDR range of the form x.x.x.x/x.	
   SecurityGroupIds:
     Type: AWS::EC2::SecurityGroup::Id
-    Default: sg-0bee687735f5ada3c
+    Default: sg-04fb5ff8ee870bbae
     
 Resources:
 #  InstanceGroup: ASG automatically spins up desired capacity of EC2 instances with defined launch configuration. 
