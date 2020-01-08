@@ -193,9 +193,9 @@ Resources:
           UnhealthyThreshold: '5'
           Interval: '30'
           Timeout: '5'
-  #    ConnectionDrainingPolicy:
-   #       Enabled: 'true'
-    #      Timeout: '300'
+      ConnectionDrainingPolicy:
+          Enabled: 'true'
+          Timeout: '300'
           
   LBSecurityGroup:
     Type: AWS::EC2::SecurityGroup
