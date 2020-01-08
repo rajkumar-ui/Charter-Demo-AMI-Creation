@@ -140,7 +140,7 @@ Resources:
           InstancePort: '8080'
           Protocol: tcp
       HealthCheck:
-          Target: tcp:8080/
+          Target: tcp: '8080'
           HealthyThreshold: '3'
           UnhealthyThreshold: '5'
           Interval: '30'
