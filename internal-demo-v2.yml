@@ -55,12 +55,12 @@ Resources:
       LoadBalancerNames: [!Ref 'MyLoadBalancerTest']
     CreationPolicy:
       ResourceSignal:
-        Timeout: PT15M
+        Timeout: PT25M
     UpdatePolicy:
       AutoScalingRollingUpdate:
         MinInstancesInService: '1'
         MaxBatchSize: '1'
-        PauseTime: PT15M
+        PauseTime: PT25M
         WaitOnResourceSignals: 'true'  
       ImageId: !Ref ImageId
       InstanceType: !Ref InstanceType
@@ -140,7 +140,7 @@ Resources:
           InstancePort: '8080'
           Protocol: tcp
       HealthCheck:
-          Target: tcp:8080
+          Target: TCP:8080
           HealthyThreshold: '3'
           UnhealthyThreshold: '5'
           Interval: '30'
