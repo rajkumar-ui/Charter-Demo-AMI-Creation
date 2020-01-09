@@ -6,7 +6,7 @@ Parameters:
   ImageId:
     Description: EC2 instance type..Provide base AMI or Packer AMI reference
     Type: AWS::EC2::Image::Id
-    Default: ami-029cf001a2bd1916b
+    Default: ami-0d56a867d066677ab
   InstanceType:
     Description:  EC2 instance type
     Type: String
@@ -137,7 +137,7 @@ Resources:
           InstancePort: '80'
           Protocol: tcp
       HealthCheck:
-          Target: HTTP:80/
+          Target: tcp:8080
           HealthyThreshold: '3'
           UnhealthyThreshold: '5'
           Interval: '30'
