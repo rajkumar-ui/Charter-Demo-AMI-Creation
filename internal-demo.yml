@@ -53,9 +53,6 @@ Resources:
       MaxSize: '3'
       DesiredCapacity: '2'
       LoadBalancerNames: [!Ref 'MyLoadBalancerTest']
-    CreationPolicy:
-      ResourceSignal:
-        Timeout: PT15M
     UpdatePolicy:
       AutoScalingRollingUpdate:
         MinInstancesInService: '1'
