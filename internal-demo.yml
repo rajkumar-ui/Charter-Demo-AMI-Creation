@@ -6,7 +6,7 @@ Parameters:
   ImageId:
     Description: EC2 instance type..Provide base AMI or Packer AMI reference
     Type: AWS::EC2::Image::Id
-    Default: ami-0d89dc91e6bedc76e
+    Default: ami-029cf001a2bd1916b
   InstanceType:
     Description:  EC2 instance type
     Type: String
@@ -137,10 +137,10 @@ Resources:
         - Fn::GetAtt: [ LBSecurityGroup, GroupId ]
       Listeners:
         - LoadBalancerPort: '80'
-          InstancePort: '8080'
+          InstancePort: '80'
           Protocol: tcp
       HealthCheck:
-          Target: tcp:8080
+          Target: HTTP:80
           HealthyThreshold: '3'
           UnhealthyThreshold: '5'
           Interval: '30'
