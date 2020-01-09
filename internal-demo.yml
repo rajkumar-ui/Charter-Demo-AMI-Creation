@@ -134,7 +134,7 @@ Resources:
         - Fn::GetAtt: [ LBSecurityGroup, GroupId ]
       Listeners:
         - LoadBalancerPort: '80'
-          InstancePort: '80'
+          InstancePort: '8080'
           Protocol: tcp
       HealthCheck:
           Target: tcp:8080
