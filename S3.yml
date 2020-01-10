@@ -1,41 +1,39 @@
+---
 AWSTemplateFormatVersion: 2010-09-09
+Description: Basic DigitalX S3 Bucket Template without any custom policies
+Parameters:
+
+  BucketName:
+    Description: The Name and Tag to be given to the bucket. Should start with digitalx-
+    Type: String
+    Default: "Charter-app-deliverables"
+
+  Retention:
+    Description: The Retention to be given to the versions of each object on the bucket
+    Default: 30
+    Type: String
+
+   
 Resources:
-  S3Bucket:
+
+#Create Shared S3 Bucket
+  S3BucketTemplate:
     Type: AWS::S3::Bucket
     Properties:
-      AccessControl: PublicRead
-      WebsiteConfiguration:
-        IndexDocument: index.html
-        ErrorDocument: error.html
-    DeletionPolicy: Retain
-  BucketPolicy:
-    Type: AWS::S3::BucketPolicy
-    Properties:
-      PolicyDocument:
-        Id: MyPolicy
-        Version: 2019-05-20
-        Statement:
-          - Sid: PublicReadForGetBucketObjects
-            Effect: Allow
-            Principal: '*'
-            Action: 's3:GetObject'
-            Resource: !Join 
-              - ''
-              - - 'arn:aws:s3:::'
-                - !Ref S3Bucket
-                - /*
-      Bucket: !Ref S3Bucket
+      BucketName: !Ref BucketName
+      LifecycleConfiguration:
+        Rules:
+          - Id: !Ref BucketName
+            NoncurrentVersionExpirationInDays: !Ref Retention
+            Status: Enabled
+      Tags:
+        - Key: Name
+          Value: !Sub ${BucketName}-bucket
+        - Key: Resource
+          Value: 's3-bucket'
+
 Outputs:
-  WebsiteURL:
-    Value: !GetAtt 
-      - S3Bucket
-      - WebsiteURL
-    Description: URL for website hosted on S3
-  S3BucketSecureURL:
-    Value: !Join 
-      - ''
-      - - 'https://'
-        - !GetAtt 
-          - S3Bucket
-          - DomainName
-    Description: Name of S3 bucket to hold website content
+
+  S3BucketName:
+    Description: Output for the s3 bucket
+    Value: !Ref S3BucketTemplate
