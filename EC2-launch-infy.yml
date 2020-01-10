@@ -42,7 +42,8 @@ Resources:
   TestEC2Instance:
     Type: AWS::EC2::Instance
     Properties:
-      SubnetId: subnet-07f7c583802674199
+      SubnetId: subnet-05d1ddbd259f1325f
+      #SubnetId: subnet-07f7c583802674199
       SecurityGroupIds:
         - !Ref SecurityGroups
       ImageId: !Ref LatestImageId
