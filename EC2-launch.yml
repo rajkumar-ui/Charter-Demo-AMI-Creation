@@ -1,0 +1,56 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: >-
+  Business Usecase- CF will use Packer AMI to provision infra - the AWS resources i.e EC2/ELB/ASG. Entire process of Infrastructure build will be orchestrated through the Jenkins. 
+  This automation will take care of setting up security groups, policies. Technical description- Jenkins job will trigger the AWS CF template in.yaml format placed in GitHub. It will automatically orchestrate the infra provisioning.
+
+Parameters:
+  LatestImageId:
+    Description: EC2 instance type..Provide base AMI or Packer AMI reference
+    Type : AWS::SSM::Parameter::Value<String>
+    Default: '/charter/tomcat-ami-id'
+  IamInstanceProfile:
+    Description:  IamInstanceProfile Name
+    Type: String
+    Default: ec2_s3_role
+  InstanceType:
+    Description:  EC2 instance type
+    Type: String
+    Default: t2.small
+    AllowedValues:
+      - t2.nano
+      - t2.micro
+      - t2.small 
+      - t2.medium	  
+  AvailabilityZones:
+    Description: EC2 Availability Zone
+    Type: String
+    Default: us-east-1d
+    AllowedValues:
+      - us-east-1a
+      - us-east-1b
+      - us-east-1c
+      - us-east-1d	  
+  KeyName:
+    Description: Provide Existing keypair name.
+    Type: AWS::EC2::KeyPair::KeyName
+    Default: Dec-2019
+  SecurityGroups:
+    Type: AWS::EC2::SecurityGroup::Id
+    Default: sg-04fb5ff8ee870bbae
+
+Resources:
+  TestEC2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      SubnetId: subnet-fe101ad0
+      SecurityGroupIds:
+        - !Ref SecurityGroups
+      ImageId: !Ref LatestImageId
+      IamInstanceProfile: !Ref IamInstanceProfile
+      InstanceType: !Ref InstanceType
+      AvailabilityZone: !Ref AvailabilityZones
+      KeyName: !Ref KeyName
+      Tags:
+        -
+          Key: Name
+          Value: Charter-POC-Instance
