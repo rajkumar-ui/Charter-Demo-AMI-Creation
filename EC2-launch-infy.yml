@@ -24,7 +24,7 @@ Parameters:
   AvailabilityZones:
     Description: EC2 Availability Zone
     Type: String
-    Default: us-east-1a
+    Default: us-east-1b
     AllowedValues:
       - us-east-1a
       - us-east-1b
@@ -42,7 +42,7 @@ Resources:
   TestEC2Instance:
     Type: AWS::EC2::Instance
     Properties:
-      SubnetId: subnet-05d1ddbd259f1325f
+      SubnetId: subnet-0e3ccdbf93fc92e10
       #SubnetId: subnet-07f7c583802674199
       SecurityGroupIds:
         - !Ref SecurityGroups
