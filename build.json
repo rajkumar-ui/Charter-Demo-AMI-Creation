@@ -22,7 +22,7 @@
 	"sudo yum update -y",
 	"sudo yum install java-1.8.0-openjdk.x86_64 -y",
 	"sudo yum install wget unzip -y",
-	"sudo wget http://apachemirror.wuchna.com/tomcat/tomcat-8/v8.5.50/bin/apache-tomcat-8.5.50.tar.gz",
+	"sudo wget http://apachemirror.wuchna.com/tomcat/tomcat-8/v8.5.51/bin/apache-tomcat-8.5.51.tar.gz",
 	"sudo wget https://raw.githubusercontent.com/sivakethineni/Charter-Demo-AMI-Creation/master/tomcat-users.xml",
 	"sudo wget https://raw.githubusercontent.com/sivakethineni/Charter-Demo-AMI-Creation/master/context.xml",
 	"sudo wget https://raw.githubusercontent.com/sivakethineni/Charter-Demo-AMI-Creation/master/tomcat",
