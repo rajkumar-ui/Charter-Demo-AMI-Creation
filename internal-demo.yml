@@ -6,7 +6,7 @@ Parameters:
   ImageId:
     Description: EC2 instance type..Provide base AMI or Packer AMI reference
     Type: AWS::EC2::Image::Id
-    Default: ami-0d56a867d066677ab
+    Default: ami-0b30f414963cf4a6c
   InstanceType:
     Description:  EC2 instance type
     Type: String
