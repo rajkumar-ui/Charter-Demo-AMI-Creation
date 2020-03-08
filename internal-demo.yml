@@ -6,7 +6,7 @@ Parameters:
   ImageId:
     Description: EC2 instance type..Provide base AMI or Packer AMI reference
     Type: AWS::EC2::Image::Id
-    Default: ami-021bb9f371690f97a
+    Default: ami-0b30f414963cf4a6c
   InstanceType:
     Description:  EC2 instance type
     Type: String
@@ -19,7 +19,7 @@ Parameters:
   AvailabilityZone:
     Description: EC2 Availability Zone
     Type: AWS::EC2::AvailabilityZone::Name
-    Default: us-west-1a
+    Default: us-west-1c
     AllowedValues:
       - us-west-1a
       - us-west-1b
@@ -27,7 +27,7 @@ Parameters:
   KeyName:
     Description: Provide Existing keypair name.
     Type: AWS::EC2::KeyPair::KeyName
-    Default: stack-keypair
+    Default: california.pem
   SSHLocation:
     Description: The IP address range that can be used to SSH to the EC2 instances
     Type: String
@@ -38,7 +38,7 @@ Parameters:
     ConstraintDescription: must be a valid IP CIDR range of the form x.x.x.x/x.	
   SecurityGroupIds:
     Type: AWS::EC2::SecurityGroup::Id
-    Default: sg-33bce942
+    Default: sg-040f545917d5400bb
     
 Resources:
 #  InstanceGroup: ASG automatically spins up desired capacity of EC2 instances with defined launch configuration. 
@@ -47,7 +47,7 @@ Resources:
     Type: AWS::AutoScaling::AutoScalingGroup
     Properties:
       AvailabilityZones:
-        - "us-west-1a"
+        - "us-west-1c"
       LaunchConfigurationName: !Ref 'LaunchConfig'
       MinSize: '1'
       MaxSize: '3'
@@ -128,7 +128,7 @@ Resources:
     Type: AWS::ElasticLoadBalancing::LoadBalancer
     Properties:
       AvailabilityZones:
-        - "us-east-1c"
+        - "us-west-1c"
       CrossZone: 'true'
       SecurityGroups:
         - Fn::GetAtt: [ LBSecurityGroup, GroupId ]
