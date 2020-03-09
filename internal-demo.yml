@@ -6,7 +6,7 @@ Parameters:
   ImageId:
     Description: EC2 instance type..Provide base AMI or Packer AMI reference
     Type: AWS::EC2::Image::Id
-    Default: ami-0b30f414963cf4a6c
+    Default: ami-0ec6517f6edbf8044
   InstanceType:
     Description:  EC2 instance type
     Type: String
@@ -38,7 +38,7 @@ Parameters:
     ConstraintDescription: must be a valid IP CIDR range of the form x.x.x.x/x.	
   SecurityGroupIds:
     Type: AWS::EC2::SecurityGroup::Id
-    Default: sg-040f545917d5400bb
+    Default: sg-0ac6feef92001f848
     
 Resources:
 #  InstanceGroup: ASG automatically spins up desired capacity of EC2 instances with defined launch configuration. 
