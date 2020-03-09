@@ -38,7 +38,7 @@ Parameters:
     ConstraintDescription: must be a valid IP CIDR range of the form x.x.x.x/x.	
   SecurityGroupIds:
     Type: AWS::EC2::SecurityGroup::Id
-    Default: sg-04fb5ff8ee870bbae
+    Default: sg-0ac6feef92001f848
     
 Resources:
 #  InstanceGroup: ASG automatically spins up desired capacity of EC2 instances with defined launch configuration. 
