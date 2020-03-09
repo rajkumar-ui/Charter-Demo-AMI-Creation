@@ -11,8 +11,8 @@
       "source_ami": "ami-021bb9f371690f97a",
       "instance_type": "t2.micro",
       "ssh_username": "ec2-user",
-      "ami_name": "tomcat-ami-packer",
-      "name": "tomcat-ami-test"
+      "ami_name": "tomcat-ami-packer-new",
+      "name": "tomcat-ami-test-new"
     }
   ],
   "provisioners": [
